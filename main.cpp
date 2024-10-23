@@ -2,5 +2,5 @@
 
 int main()
 {
-    Board<7> board;
+    Board board(5);
 }
