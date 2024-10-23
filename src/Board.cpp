@@ -12,12 +12,16 @@ Board::Board(int size)
         {
             xStartPos = xStartPos - size - (evenOffset);
         }
-        boardContents[i] = Vector2(i, xStartPos);
+        boardContents.emplace_back(i, xStartPos);
         xStartPos += 2;
     }
+}
 
-    for (const Vector2 &pos : boardContents)
+std::ostream &operator<<(std::ostream &os, const Board &board)
+{
+    for (const Vector2 &pos : board.boardContents)
     {
-        std::cout << pos.x << " " << pos.y << std::endl;
+        os << pos.x << ", " << pos.y << '\n';
     }
+    return os;
 }

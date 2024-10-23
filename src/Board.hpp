@@ -1,6 +1,6 @@
 #pragma once
+#include <ostream>
 #include <vector>
-#include <iostream>
 
 struct Vector2
 {
@@ -16,6 +16,8 @@ class Board
 {
   public:
     Board(int size);
+
+    friend std::ostream &operator<<(std::ostream &os, const Board &board);
 
   private:
     std::vector<Vector2> boardContents;
