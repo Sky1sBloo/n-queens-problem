@@ -21,12 +21,12 @@ template <std::size_t N> class Board
         
         for (int i = xStartPos; i < N; i++)
         {
-            int rowPos = i * 2;
-            if (rowPos >= N)
+            int columnPos = i * 2;
+            if (columnPos >= N)
             {
-                rowPos = rowPos - N;
+                columnPos = columnPos - N;
             }
-            boardContents[i] = Vector2(rowPos, i);
+            boardContents[i] = Vector2(i, columnPos);
         }
 
         for (const Vector2 &pos : boardContents)
