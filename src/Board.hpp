@@ -17,16 +17,17 @@ template <std::size_t N> class Board
   public:
     Board()
     {
-        int xStartPos = (N % 2 == 0) ? 1 : 0;
+        int evenOffset = (N % 2 == 0) ? 1 : 0;
+        int xStartPos = evenOffset;
         
-        for (int i = xStartPos; i < N; i++)
+        for (int i = 0; i < N; i++)
         {
-            int columnPos = i * 2;
-            if (columnPos >= N)
+            if (xStartPos >= N)
             {
-                columnPos = columnPos - N;
+                xStartPos = xStartPos - N - (evenOffset);
             }
-            boardContents[i] = Vector2(i, columnPos);
+            boardContents[i] = Vector2(i, xStartPos);
+            xStartPos += 2;
         }
 
         for (const Vector2 &pos : boardContents)
