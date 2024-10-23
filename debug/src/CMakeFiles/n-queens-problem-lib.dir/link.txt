@@ -1,2 +1,0 @@
-/usr/bin/ar qc libn-queens-problem-lib.a "CMakeFiles/n-queens-problem-lib.dir/Board.cpp.o"
-/usr/bin/ranlib libn-queens-problem-lib.a

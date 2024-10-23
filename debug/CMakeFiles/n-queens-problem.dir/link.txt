@@ -1,1 +1,0 @@
-/usr/bin/c++ -g "CMakeFiles/n-queens-problem.dir/main.cpp.o" -o n-queens-problem  src/libn-queens-problem-lib.a

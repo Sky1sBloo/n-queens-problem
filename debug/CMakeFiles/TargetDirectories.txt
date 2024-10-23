@@ -1,6 +1,0 @@
-/home/jdp/school-programs/n-queens-problem/debug/CMakeFiles/n-queens-problem.dir
-/home/jdp/school-programs/n-queens-problem/debug/CMakeFiles/edit_cache.dir
-/home/jdp/school-programs/n-queens-problem/debug/CMakeFiles/rebuild_cache.dir
-/home/jdp/school-programs/n-queens-problem/debug/src/CMakeFiles/n-queens-problem-lib.dir
-/home/jdp/school-programs/n-queens-problem/debug/src/CMakeFiles/edit_cache.dir
-/home/jdp/school-programs/n-queens-problem/debug/src/CMakeFiles/rebuild_cache.dir
