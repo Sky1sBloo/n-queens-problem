@@ -1,6 +1,6 @@
-import board;
+#include "Board.hpp"
 
 int main()
 {
-    Board board(5);
+    Board<6> board;
 }
