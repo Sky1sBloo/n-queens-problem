@@ -12,12 +12,12 @@ struct Vector2
     int y;
 };
 
-class Board
+class QueenBuilder 
 {
   public:
-    Board(int size);
+    QueenBuilder(int size);
 
-    friend std::ostream &operator<<(std::ostream &os, const Board &board);
+    friend std::ostream &operator<<(std::ostream &os, const QueenBuilder &board);
 
   private:
     std::vector<Vector2> boardContents;

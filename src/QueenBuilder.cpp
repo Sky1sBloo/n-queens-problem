@@ -1,6 +1,6 @@
-#include "Board.hpp"
+#include "QueenBuilder.hpp"
 
-Board::Board(int size)
+QueenBuilder::QueenBuilder(int size)
 {
     boardContents.reserve(size);
     int evenOffset = (size % 2 == 0) ? 1 : 0;
@@ -17,7 +17,7 @@ Board::Board(int size)
     }
 }
 
-std::ostream &operator<<(std::ostream &os, const Board &board)
+std::ostream &operator<<(std::ostream &os, const QueenBuilder &board)
 {
     for (const Vector2 &pos : board.boardContents)
     {

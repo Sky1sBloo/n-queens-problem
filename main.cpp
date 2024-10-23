@@ -1,8 +1,8 @@
-#include "Board.hpp"
+#include "QueenBuilder.hpp"
 #include <iostream>
 
 int main()
 {
-    Board board(5);
-    std::cout << board << std::endl;
+    QueenBuilder queens(5);
+    std::cout << queens;
 }
