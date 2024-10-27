@@ -16,7 +16,7 @@ template <typename T, int Size>
 void IterativeStack<T, Size>::pop()
 {
     if (length == 0) {
-        throw std::out_of_range("Tried popping an empty stack");
+        throw std::length_error("Tried popping an empty stack");
     }
 
     if (current > 0) {
