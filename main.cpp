@@ -3,6 +3,6 @@
 
 int main()
 {
-    QueenBuilder queens(5);
+    QueenBuilder queens(15);
     std::cout << queens;
 }

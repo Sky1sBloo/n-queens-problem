@@ -2,6 +2,7 @@
 
 QueenBuilder::QueenBuilder(int size)
 {
+    // TODO: Add limitation for values less than 3
     boardContents.reserve(size);
     int evenOffset = (size % 2 == 0) ? 1 : 0;
     int xStartPos = evenOffset;
@@ -19,9 +20,11 @@ QueenBuilder::QueenBuilder(int size)
 
 std::ostream &operator<<(std::ostream &os, const QueenBuilder &board)
 {
-    for (const Vector2 &pos : board.boardContents)
+    for (const Vector2& pos : board.boardContents)
     {
         os << pos.x << ", " << pos.y << '\n';
     }
+
+
     return os;
 }

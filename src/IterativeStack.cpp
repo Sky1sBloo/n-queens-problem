@@ -7,18 +7,16 @@ T& IterativeStack<T>::top()
 }
 
 template <typename T>
-void IterativeStack<T>::push()
+void IterativeStack<T>::push(const T& newValue)
 {
-
 }
+
 template <typename T>
 void IterativeStack<T>::pop()
 {
-    if (current > 0)
-    {
+    if (current > 0) {
         current--;
-    }
-    else {
+    } else {
         current = values.size() - 1;
     }
 }

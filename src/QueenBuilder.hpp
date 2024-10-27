@@ -16,7 +16,7 @@ class QueenBuilder
 {
   public:
     QueenBuilder(int size);
-
+    
     friend std::ostream &operator<<(std::ostream &os, const QueenBuilder &board);
 
   private:

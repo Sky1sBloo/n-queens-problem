@@ -11,7 +11,7 @@ public:
     IterativeStack(std::initializer_list<T>);
 
     T& top();
-    void push();
+    void push(const T& value);
     void pop();
 private:
     std::vector<T> values;
