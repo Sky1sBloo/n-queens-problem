@@ -48,6 +48,8 @@ public:
         }
     }
 
+    bool isEmpty() const { return length == 0; }
+
     // Iterators
     T* begin() const
     {
