@@ -1,7 +1,7 @@
 #pragma once
 
 #include <initializer_list>
-#include <list>
+#include <forward_list>
 
 template <typename T>
 class IterativeStack {
@@ -13,5 +13,5 @@ public:
     void pop();
 
 private:
-    std::list<T> values;
+    std::forward_list<T> values;
 };
