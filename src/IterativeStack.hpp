@@ -49,6 +49,7 @@ public:
     }
 
     bool isEmpty() const { return length == 0; }
+    std::size_t getLength() const { return length; }
 
     // Iterators
     T* begin() const
