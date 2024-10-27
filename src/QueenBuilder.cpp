@@ -3,16 +3,14 @@
 QueenBuilder::QueenBuilder(std::size_t size)
     : positions({}, size)
 {
-    int currentRow = 0;
     int newNodeStartCol = (positions.isEmpty()) ? 0 : (positions.top().x + 2) % size;  // Starting column of new node
 
     while (true) {
-        Vector2 newNodePos(newNodeStartCol, currentRow);
+        Vector2 newNodePos(newNodeStartCol, positions.getLength());
 
         if (positionIntersects(newNodePos)) {
             if (++newNodePos.x == newNodeStartCol) {
                 positions.pop();
-                currentRow--;
                 newNodeStartCol++;
             }
 
