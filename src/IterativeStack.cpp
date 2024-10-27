@@ -21,7 +21,8 @@ void IterativeStack<T, Size>::pop()
 
     if (current > 0) {
         current--;
+        length--;
     } else {
-        current = Size - 1;
+        current = (--length > 0) ? (Size - 1) : 0;
     }
 }
