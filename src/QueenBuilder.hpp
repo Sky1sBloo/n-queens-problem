@@ -14,7 +14,6 @@ struct Vector2 {
     int y;
 };
 
-template <int Size>
 class QueenBuilder {
 public:
     QueenBuilder();
@@ -22,5 +21,5 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const QueenBuilder& board);
 
 private:
-    IterativeStack<Vector2, Size> queenPositions;
+    IterativeStack<Vector2> positions;
 };
