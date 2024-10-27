@@ -14,7 +14,7 @@ public:
         values.reserve(capacity);
     }
 
-    T& top()
+    T& top() const
     {
         return values[current];
     }
@@ -46,6 +46,17 @@ public:
         } else {
             current = (--length > 0) ? (capacity - 1) : 0;
         }
+    }
+
+    // Iterators
+    T* begin() const
+    {
+        return &(values[current]);
+    }
+
+    T* end() const
+    {
+        return &(values[(current + length) % capacity]);
     }
 
 private:

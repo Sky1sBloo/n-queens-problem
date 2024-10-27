@@ -1,4 +1,5 @@
 #pragma once
+#include <cstddef>
 #include <ostream>
 
 #include "IterativeStack.hpp"
@@ -16,7 +17,7 @@ struct Vector2 {
 
 class QueenBuilder {
 public:
-    QueenBuilder();
+    QueenBuilder(std::size_t size);
 
     friend std::ostream& operator<<(std::ostream& os, const QueenBuilder& board);
 
