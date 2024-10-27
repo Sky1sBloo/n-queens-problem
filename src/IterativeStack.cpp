@@ -14,17 +14,16 @@ void IterativeStack<T, Size>::push(const T& newValue)
 template <typename T, int Size>
 void IterativeStack<T, Size>::pop()
 {
-    auto decrementChecker = [this](int newValue) {
+    auto decrementChecker = [&](int newValue) {
         if (length - 1 >= 0) {
-            this->current = newValue;
+            current = newValue;
+            length--;
         }
     };
+
     if (current > 0) {
-        current--;
-        length--;
+        decrementChecker(--current);
     } else {
-        if (length > 0) {
-            current = length - 1;
-        }
+        decrementChecker(Size - 1);
     }
 }
