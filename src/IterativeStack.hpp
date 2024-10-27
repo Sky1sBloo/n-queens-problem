@@ -7,7 +7,10 @@
 template <typename T, int Size>
 class IterativeStack {
 public:
-    IterativeStack(std::initializer_list<T>);
+    IterativeStack(std::initializer_list<T> newValues)
+        : values(newValues)
+    {
+    }
 
     T& top()
     {
