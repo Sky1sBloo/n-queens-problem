@@ -15,4 +15,5 @@ public:
 private:
     std::array<T, Size> values;
     int current;
+    int length;
 };
