@@ -1,19 +1,16 @@
 #include "IterativeStack.hpp"
 
-template <typename T>
-T& IterativeStack<T>::top()
+template <typename T, int Size>
+T& IterativeStack<T, Size>::top()
 {
-    return values[0];
 }
 
-template <typename T>
-void IterativeStack<T>::push(const T& newValue)
+template <typename T, int Size>
+void IterativeStack<T, Size>::push(const T& newValue)
 {
-    values.push_front(newValue);
 }
 
-template <typename T>
-void IterativeStack<T>::pop()
+template <typename T, int Size>
+void IterativeStack<T, Size>::pop()
 {
-    values.pop_front();
 }
