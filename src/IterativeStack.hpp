@@ -1,15 +1,17 @@
 #pragma once
 
-#include <array>
+#include <cstddef>
 #include <initializer_list>
 #include <stdexcept>
+#include <vector>
 
-template <typename T, int Size>
+template <typename T>
 class IterativeStack {
 public:
-    IterativeStack(std::initializer_list<T> newValues)
+    IterativeStack(std::initializer_list<T> newValues, std::size_t capacity)
         : values(newValues)
     {
+        values.reserve(capacity);
     }
 
     T& top()
@@ -19,11 +21,11 @@ public:
 
     void push(const T& newValue)
     {
-        if (length == Size - 1) {
+        if (length == capacity - 1) {
             throw std::length_error("Tried pushing a full stack");
         }
 
-        if (current < Size - 1) {
+        if (current < capacity - 1) {
             values[++current] = newValue;
         } else {
             values[0] = newValue;
@@ -42,12 +44,13 @@ public:
             current--;
             length--;
         } else {
-            current = (--length > 0) ? (Size - 1) : 0;
+            current = (--length > 0) ? (capacity - 1) : 0;
         }
     }
 
 private:
-    std::array<T, Size> values;
-    int current;
-    int length;
+    std::vector<T> values;
+    std::size_t current;
+    std::size_t length;
+    const std::size_t capacity;
 };
