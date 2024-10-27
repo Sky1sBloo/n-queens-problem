@@ -3,7 +3,7 @@
 template <typename T>
 T& IterativeStack<T>::top()
 {
-    return values[values.size() - 1];
+    return values[0];
 }
 
 template <typename T>
