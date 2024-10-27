@@ -1,10 +1,12 @@
 #pragma once
 #include <ostream>
-#include <vector>
 
-struct Vector2
-{
-    Vector2(int newX = 0, int newY = 0) : x(newX), y(newY)
+#include "IterativeStack.hpp"
+
+struct Vector2 {
+    Vector2(int newX = 0, int newY = 0)
+        : x(newX)
+        , y(newY)
     {
     }
 
@@ -12,13 +14,13 @@ struct Vector2
     int y;
 };
 
-class QueenBuilder 
-{
-  public:
-    QueenBuilder(int size);
-    
-    friend std::ostream &operator<<(std::ostream &os, const QueenBuilder &board);
+template <int Size>
+class QueenBuilder {
+public:
+    QueenBuilder();
 
-  private:
-    std::vector<Vector2> boardContents;
+    friend std::ostream& operator<<(std::ostream& os, const QueenBuilder& board);
+
+private:
+    IterativeStack<Vector2, Size> queenPositions;
 };
