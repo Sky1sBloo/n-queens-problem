@@ -1,19 +1,17 @@
 #pragma once
 
 #include <initializer_list>
-#include <vector>
-
+#include <list>
 
 template <typename T>
-class IterativeStack
-{
+class IterativeStack {
 public:
     IterativeStack(std::initializer_list<T>);
 
     T& top();
-    void push(const T& value);
+    void push(const T& newValue);
     void pop();
+
 private:
-    std::vector<T> values;
-    int current;
+    std::list<T> values;
 };

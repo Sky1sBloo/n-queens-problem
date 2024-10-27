@@ -3,20 +3,17 @@
 template <typename T>
 T& IterativeStack<T>::top()
 {
-    return values[current];
+    return values[values.size() - 1];
 }
 
 template <typename T>
 void IterativeStack<T>::push(const T& newValue)
 {
+    values.push_front(newValue);
 }
 
 template <typename T>
 void IterativeStack<T>::pop()
 {
-    if (current > 0) {
-        current--;
-    } else {
-        current = values.size() - 1;
-    }
+    values.pop_front();
 }
