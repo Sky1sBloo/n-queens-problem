@@ -13,10 +13,16 @@ QueenBuilder::QueenBuilder(std::size_t size)
         if (positionIntersects(newNodePos)) {
             if (++newNodePos.x == newNodeStartCol) {
                 positions.pop();
+                if (positions.getLength() == 0) {
+                    break;
+                }
+                positions.pop();
                 newNodeStartCol++;
+                continue;
             }
-
             positions.pop();
+            newNodeStartCol++;
+
         } else {
             if (positions.getLength() == size) {
                 foundSet = true;
@@ -31,13 +37,13 @@ bool QueenBuilder::positionIntersects(const Vector2& newPosition)
 {
     for (const Vector2& iPos : positions) {
         if (newPosition.x == iPos.x || newPosition.y == iPos.y) {
-            return false;
+            return true;
         }
         if (std::abs(newPosition.y - iPos.y) == std::abs(newPosition.x - iPos.x)) {
-            return false;
+            return true;
         }
     }
-    return true;
+    return false;
 }
 
 std::ostream& operator<<(std::ostream& os, const QueenBuilder& board)
