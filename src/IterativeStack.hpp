@@ -17,7 +17,7 @@ public:
 
     const T& top() const
     {
-        return *(values.end());
+        return values.back();
     }
 
     void push(const T& newValue)
