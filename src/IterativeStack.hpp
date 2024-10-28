@@ -8,8 +8,8 @@
 template <typename T>
 class IterativeStack {
 public:
-    IterativeStack(std::initializer_list<T> newValues, std::size_t capacity)
-        : values(newValues)
+    IterativeStack(std::initializer_list<T> newValues, std::size_t newCapacity)
+        : values(newValues), current(0), length(newValues.size()), capacity(newCapacity)
     {
         values.reserve(capacity);
     }
