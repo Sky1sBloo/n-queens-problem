@@ -9,62 +9,49 @@ template <typename T>
 class IterativeStack {
 public:
     IterativeStack(std::initializer_list<T> newValues, std::size_t newCapacity)
-        : values(newValues), current(0), length(newValues.size()), capacity(newCapacity)
+        : values(newValues)
+        , capacity(newCapacity)
     {
         values.reserve(capacity);
     }
 
     const T& top() const
     {
-        return values[current];
+        *(values.end());
     }
 
     void push(const T& newValue)
     {
-        if (length == capacity - 1) {
+        if (values.size() == capacity) {
             throw std::length_error("Tried pushing a full stack");
         }
 
-        if (current < capacity - 1) {
-            values[++current] = newValue;
-        } else {
-            values[0] = newValue;
-        }
-
-        length++;
+        values[values.size() - 1] = newValue;
     }
 
     void pop()
     {
-        if (length == 0) {
+        if (values.size() == 0) {
             throw std::length_error("Tried popping an empty stack");
         }
-
-        if (current > 0) {
-            current--;
-            length--;
-        } else {
-            current = (--length > 0) ? (capacity - 1) : 0;
-        }
+        values.pop_back();
     }
 
-    bool isEmpty() const { return length == 0; }
-    std::size_t getLength() const { return length; }
+    bool isEmpty() const { return values.size() == 0; }
+    std::size_t getLength() const { return values.size(); }
 
     // Iterators
     const T* begin() const
     {
-        return &(values[current]);
+        return values.begin();
     }
 
     const T* end() const
     {
-        return &(values[(current + length) % capacity]);
+        return values.end();
     }
 
 private:
     std::vector<T> values;
-    std::size_t current;
-    std::size_t length;
     const std::size_t capacity;
 };
