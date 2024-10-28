@@ -39,7 +39,7 @@ bool QueenBuilder::positionIntersects(const Vector2& newPosition)
         if (newPosition.x == iPos.x || newPosition.y == iPos.y) {
             return true;
         }
-        if (newPosition.y - iPos.y == newPosition.x - iPos.x) {
+        if (std::abs(newPosition.y - iPos.y) == std::abs(newPosition.x - iPos.x)) {
             return true;
         }
     }
