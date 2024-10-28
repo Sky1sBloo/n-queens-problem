@@ -5,27 +5,26 @@ QueenBuilder::QueenBuilder(std::size_t size)
     : positions({}, size)
 {
     int newNodeStartCol = (positions.isEmpty()) ? 0 : (positions.top().x + 2) % size; // Starting column of new node
+    int newNodeCol = newNodeStartCol;  // This will be incremented when it intersects
     bool foundSet = false;
 
     while (!foundSet) {
-        Vector2 newNodePos(newNodeStartCol, positions.getLength());
+        Vector2 newNodePos(newNodeCol, positions.getLength());
 
         if (positionIntersects(newNodePos)) {
             if (++newNodePos.x == newNodeStartCol) {
+                newNodeStartCol = positions.top().x + 1;
+                newNodeStartCol %= size;
+                newNodeCol = newNodeStartCol;
                 positions.pop();
-                if (positions.getLength() == 0) {
-                    break;
-                }
-                positions.pop();
-                newNodeStartCol++;
                 continue;
             }
-            positions.pop();
-            newNodeStartCol++;
-
+            newNodeCol++;
+            newNodeCol %= size;
         } else {
             positions.push(newNodePos);
             newNodeStartCol = (newNodePos.x + 2) % size;
+            newNodeCol = newNodeStartCol;
 
             if (positions.getLength() == size) {
                 foundSet = true;
