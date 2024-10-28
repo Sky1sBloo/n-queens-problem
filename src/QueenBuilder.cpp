@@ -24,11 +24,12 @@ QueenBuilder::QueenBuilder(std::size_t size)
             newNodeStartCol++;
 
         } else {
+            positions.push(newNodePos);
+            newNodeStartCol = (newNodePos.x + 2) % size;
+
             if (positions.getLength() == size) {
                 foundSet = true;
             }
-            positions.push(newNodePos);
-            newNodeStartCol = (newNodePos.x + 2) % size;
         }
     }
 }
