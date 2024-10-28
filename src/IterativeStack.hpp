@@ -17,7 +17,7 @@ public:
 
     const T& top() const
     {
-        *(values.end());
+        return *(values.end());
     }
 
     void push(const T& newValue)
@@ -25,8 +25,7 @@ public:
         if (values.size() == capacity) {
             throw std::length_error("Tried pushing a full stack");
         }
-
-        values[values.size() - 1] = newValue;
+        values.push_back(newValue);
     }
 
     void pop()
@@ -41,12 +40,12 @@ public:
     std::size_t getLength() const { return values.size(); }
 
     // Iterators
-    const T* begin() const
+    const std::vector<T, std::allocator<T>>::const_iterator begin() const
     {
         return values.begin();
     }
 
-    const T* end() const
+    const std::vector<T, std::allocator<T>>::const_iterator end() const
     {
         return values.end();
     }
