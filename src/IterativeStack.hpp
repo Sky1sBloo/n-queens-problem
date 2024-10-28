@@ -14,7 +14,7 @@ public:
         values.reserve(capacity);
     }
 
-    T& top() const
+    const T& top() const
     {
         return values[current];
     }
@@ -52,12 +52,12 @@ public:
     std::size_t getLength() const { return length; }
 
     // Iterators
-    T* begin() const
+    const T* begin() const
     {
         return &(values[current]);
     }
 
-    T* end() const
+    const T* end() const
     {
         return &(values[(current + length) % capacity]);
     }
