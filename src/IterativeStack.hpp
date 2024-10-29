@@ -1,15 +1,13 @@
 #pragma once
 
 #include <cstddef>
-#include <initializer_list>
 #include <stdexcept>
 #include <vector>
 
 template <typename T>
 class IterativeStack {
 public:
-    IterativeStack(std::initializer_list<T> newValues, std::size_t newCapacity)
-        : values(newValues)
+    IterativeStack(std::size_t newCapacity)
     {
         values.reserve(newCapacity);
     }

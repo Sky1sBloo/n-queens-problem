@@ -3,7 +3,7 @@
 #include <cstdlib>
 
 QueenBuilder::QueenBuilder(std::size_t size)
-    : positions({}, size)
+    : positions(size)
 {
     bool foundPositions = false;
 
