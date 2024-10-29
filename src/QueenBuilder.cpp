@@ -1,5 +1,4 @@
 #include "QueenBuilder.hpp"
-#include <algorithm>
 #include <cstdlib>
 
 QueenBuilder::QueenBuilder(std::size_t size)
@@ -33,23 +32,18 @@ QueenBuilder::QueenBuilder(std::size_t size)
 
 bool QueenBuilder::topPositionIntersects()
 {
-    if (positions.getLength() <= 1) {
-        return false;
-    }
-
-    auto matchingIntersection = std::find_if(positions.begin(), positions.end() - 1, [&](const Vector2& iPos) {
+    for (const Vector2& iPos : positions) {
+        if (iPos.y == positions.top().y) {
+            continue;
+        }
         if (positions.top().x == iPos.x || positions.top().y == iPos.y) {
             return true;
         }
         if (std::abs(positions.top().x - iPos.x) == std::abs(positions.top().y - iPos.y)) {
             return true;
         }
-
-        return false;
-    });
-
-    return (matchingIntersection != positions.end());
-
+    }
+    return false;
 }
 
 std::ostream& operator<<(std::ostream& os, const QueenBuilder& board)
