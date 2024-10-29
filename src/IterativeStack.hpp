@@ -10,9 +10,8 @@ class IterativeStack {
 public:
     IterativeStack(std::initializer_list<T> newValues, std::size_t newCapacity)
         : values(newValues)
-        , capacity(newCapacity)
     {
-        values.reserve(capacity);
+        values.reserve(newCapacity);
     }
 
     T& top() 
@@ -22,7 +21,7 @@ public:
 
     void push(const T& newValue)
     {
-        if (values.size() == capacity) {
+        if (values.size() == values.capacity()) {
             throw std::length_error("Tried pushing a full stack");
         }
         values.push_back(newValue);
@@ -40,17 +39,16 @@ public:
     std::size_t getLength() const { return values.size(); }
 
     // Iterators
-    const std::vector<T, std::allocator<T>>::const_iterator begin() const
+    std::vector<T>::iterator begin() 
     {
         return values.begin();
     }
 
-    const std::vector<T, std::allocator<T>>::const_iterator end() const
+    std::vector<T>::iterator end() 
     {
         return values.end();
     }
 
 private:
     std::vector<T> values;
-    const std::size_t capacity;
 };
