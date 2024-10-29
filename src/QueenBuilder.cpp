@@ -33,23 +33,23 @@ QueenBuilder::QueenBuilder(std::size_t size)
 
 bool QueenBuilder::topPositionIntersects()
 {
-    bool isIntersecting = false;
-
     if (positions.getLength() <= 1) {
         return false;
     }
 
-    std::for_each(positions.begin(), positions.end() - 1, [&](const Vector2& iPos) {
+    auto matchingIntersection = std::find_if(positions.begin(), positions.end() - 1, [&](const Vector2& iPos) {
         if (positions.top().x == iPos.x || positions.top().y == iPos.y) {
-            isIntersecting = true;
-            return;
+            return true;
         }
         if (std::abs(positions.top().x - iPos.x) == std::abs(positions.top().y - iPos.y)) {
-            isIntersecting = true;
-            return;
+            return true;
         }
+
+        return false;
     });
-    return isIntersecting;
+
+    return (matchingIntersection != positions.end());
+
 }
 
 std::ostream& operator<<(std::ostream& os, const QueenBuilder& board)
