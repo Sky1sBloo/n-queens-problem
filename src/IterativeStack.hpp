@@ -15,7 +15,7 @@ public:
         values.reserve(capacity);
     }
 
-    T& top() const
+    T& top() 
     {
         return values.back();
     }
