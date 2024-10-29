@@ -25,3 +25,10 @@ public:
 private:
     IterativeStack<Vector2> positions;
 };
+
+class QueenBuilderException : public std::exception {
+public:
+    const char* what() {
+        return "Cannot find solutions";
+    }
+};

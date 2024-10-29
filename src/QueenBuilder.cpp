@@ -9,14 +9,16 @@ QueenBuilder::QueenBuilder(std::size_t size)
 
     std::size_t currentCol = 0; // (positions.isEmpty()) ? 0 : (positions.top().x + 2) % size;
     while (!foundPositions) {
-
         if (topPositionIntersects()) {
             while (positions.getLength() > 1 && positions.top().x == size - 1) {
                 positions.pop();
             }
             if (!positions.isEmpty()) {
                 positions.top().x++;
-                positions.top().x %= size;
+
+                if (positions.top().x >= size && positions.getLength() == 1) {
+                    throw QueenBuilderException();
+                }
             }
         } else {
             if (positions.getLength() == size) {
