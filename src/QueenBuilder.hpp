@@ -20,7 +20,7 @@ public:
     QueenBuilder(std::size_t size);
     bool topPositionIntersects();
 
-    friend std::ostream& operator<<(std::ostream& os, const QueenBuilder& board);
+    friend std::ostream& operator<<(std::ostream& os, QueenBuilder& board);
 
 private:
     IterativeStack<Vector2> positions;
