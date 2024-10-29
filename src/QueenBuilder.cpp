@@ -6,17 +6,17 @@ QueenBuilder::QueenBuilder(std::size_t size)
     : positions({}, size)
 {
     bool foundPositions = false;
-    std::size_t currentCol = (positions.isEmpty()) ? 0 : (positions.top().x + 2) % size;
 
     while (!foundPositions) {
 
+        std::size_t currentCol = 0; // (positions.isEmpty()) ? 0 : (positions.top().x + 2) % size;
         if (topPositionIntersects()) {
-            while (!positions.isEmpty() && positions.top().x != currentCol) {
+            while (positions.getLength() > 1 || positions.top().x == size - 1) {
                 positions.pop();
-
-                if (!positions.isEmpty()) {
-                    positions.top().x++;
-                }
+            }
+            if (!positions.isEmpty()) {
+                positions.top().x++;
+                positions.top().x %= size;
             }
         } else {
             if (positions.getLength() == size) {
