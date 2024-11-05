@@ -35,7 +35,7 @@ QueenBuilder::QueenBuilder(std::size_t size)
 bool QueenBuilder::topPositionIntersects()
 {
     // Used this to loop until second to the last value
-    auto intersectPosition = std::find_if(positions.begin(), std::prev(positions.end()), [&](const Position& iPos) {
+    return std::any_of(positions.begin(), std::prev(positions.end()), [&](const Position& iPos) {
         if (positions.top().column == iPos.column || positions.top().row == iPos.row) {
             return true;
         }
@@ -43,10 +43,7 @@ bool QueenBuilder::topPositionIntersects()
             return true;
         }
         return false;
-    });
-
-    bool foundIntersection = intersectPosition != std::prev(positions.end());
-    return foundIntersection;
+    });;
 }
 
 std::ostream& operator<<(std::ostream& os, QueenBuilder& board)
