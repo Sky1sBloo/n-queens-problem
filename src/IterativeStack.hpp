@@ -35,6 +35,7 @@ public:
 
     bool isEmpty() const { return values.size() == 0; }
     std::size_t getLength() const { return values.size(); }
+    T getValue(int i) const { return values.at(i); }
 
     // Iterators
     std::vector<T>::iterator begin() 
