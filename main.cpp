@@ -14,14 +14,11 @@ int main(int argc, char* argv[])
 
     try {
         size = std::stoi(argv[1]);
+        QueenBuilder queens(size);
+        std::cout << queens << std::endl;
     } catch (std::invalid_argument) {
         std::cerr << "Error: Argument not a number" << std::endl;
         return 1;
-    }
-
-    try {
-        QueenBuilder queens(size);
-        std::cout << queens << std::endl;
     } catch (QueenBuilderException& error) {
         std::cerr << error.what() << std::endl;
         return 1;
